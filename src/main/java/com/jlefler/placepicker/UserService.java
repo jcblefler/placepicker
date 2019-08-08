@@ -10,7 +10,6 @@ import java.util.Arrays;
 
 @Service
 public class UserService {
-
     @Autowired
     UserRepository userRepository;
 
@@ -48,12 +47,17 @@ public class UserService {
         userRepository.save(user);
     }
 
-//    public void saveUser(User user) {
-//        user.setRoles(Arrays.asList(roleRepository.findByRole("USER")));
-//        user.setEnabled(true);
-//        user.setPassword(passwordEncoder.encode(user.getPassword()));
-//        userRepository.save(user);
-//    }
+    public void saveUser(User user) {
+        user.setRoles(Arrays.asList(roleRepository.findByRole("USER")));
+        user.setEnabled(true);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        userRepository.save(user);
+    }
+
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
 
     public void saveAdmin(User user) {
         user.setRoles(Arrays.asList(roleRepository.findByRole("ADMIN")));
@@ -61,4 +65,5 @@ public class UserService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
     }
+
 }

@@ -33,13 +33,6 @@
             </strong>
         </div>
         <div class="container">
-            <h5>Email: </h5>
-            <input type="text" id="email" placeholder="Email" th:field="*{email}"/><br/>
-            <strong>
-                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</span>
-            </strong>
-        </div>
-        <div class="container">
             <h5>Username: </h5>
             <input type="text" id="username" placeholder="Username" th:field="*{username}"/><br/>
             <strong>

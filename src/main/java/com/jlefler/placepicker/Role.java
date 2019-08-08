@@ -1,10 +1,10 @@
 package com.jlefler.placepicker;
 
-
 import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
+@Table(name = "ROLE_DATA")
 public class Role {
 
     @Id
@@ -47,6 +47,4 @@ public class Role {
     public void setUsers(Collection<User> users) {
         this.users = users;
     }
-
-
 }
