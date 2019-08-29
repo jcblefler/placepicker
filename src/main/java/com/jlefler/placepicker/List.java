@@ -21,6 +21,10 @@ public class List {
     public List() {
     }
 
+    public List(String name) {
+        this.name = name;
+    }
+
     public List(String name, User user) {
         this.name = name;
         this.user = user;

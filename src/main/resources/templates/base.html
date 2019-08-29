@@ -10,7 +10,49 @@
 
 </head>
 <body>
+<div th:fragment="navlinks" id="navlinks">
 
+    <div sec:authorize="isAnonymous()">
+        <nav class="navbar navbar-expand-sm">
+
+            <ul class="navbar-nav" style="width: 100%;">
+                <li class="nav-item">
+                    <a style="font-size: 1.5em; padding-right: 2em; color: black;" class="nav-link" href="/homepage">Home</a>
+                </li>
+
+
+
+                <li class="nav-item">
+                    <a style="font-size: 1.5em; padding-right: 2em; padding-left: 2em; color: black;"  class="nav-link" href="/register">Register</a>
+                </li>
+
+                <li class="nav-item">
+                    <a style="font-size: 1.5em; padding-left: 2em; color: black;"  class="nav-link" href="/login">Login</a>
+                </li>
+
+            </ul>
+
+        </nav>
+    </div>
+    <div sec:authorize="isAuthenticated()">
+        <nav class="navbar navbar-expand-sm" style="width: 100%;">
+            <ul class="navbar-nav" style="width: 100%;">
+                <li class="nav-item">
+                    <a style="font-size: 1.5em; padding-right: 2.5em; color: black;" class="nav-link" href="/homepage" th:inline="text">Hello, [[${user.firstName}]]</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a style="font-size: 1.5em; padding-left: 2.5em; color: black;"  class="nav-link" href="/logout">Log Out</a>
+                </li>
+
+
+            </ul>
+
+        </nav>
+    </div>
+
+</div>
 
 <!--Bootstrap JS-->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
